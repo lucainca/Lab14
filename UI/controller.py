@@ -9,9 +9,18 @@ class Controller:
         self._model = model
 
 
+    def fillDD(self):
+        for store in self._model.getAllStores():
+            self._view._ddStore.options.append(ft.dropdown.Option(store.store_name))
+            self._view.update_page()
+
+
+
+
 
     def handleCreaGrafo(self, e):
-        pass
+        store= self._view._ddStore.value
+        self._model.buildgraph(store.store_id)
     def handleCerca(self, e):
         pass
 
